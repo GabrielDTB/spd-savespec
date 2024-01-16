@@ -13,6 +13,7 @@ struct Item {
         armorKit @8 :Void;
         armor @9:Armor;
         bag @10 :Bag;
+        bomb @34 :Void;
         corpseDust @11 :Void;
         darkGold @12 :Void;
         dewdrop @13 :Void;
@@ -21,8 +22,8 @@ struct Item {
         food @17 :Food;
         gold @18 :Gold;
         heap @19 :Heap;
+        honeypot @35 :Honeypot;
         key @20 :Key;
-        lloydsBeacon @21 :LloydsBeacon;
         potion @22 :Potion;
         ratSkull @23 :Void;
         ring @24 :Ring;
@@ -37,6 +38,7 @@ struct Item {
 
         deprecatedAnkh @7 :Void; # Promoted - [v0.1.0, v0.1.1a)
         deprecatedDriedRose @15 :Void; # Reworked into artifact - v0.2.3f
+        deprecatedLloydsBeacon @21 :DeprecatedLloydsBeacon; # Made into an artifact - v0.2.4d
     }
 
     struct Ankh {
@@ -55,6 +57,7 @@ struct Item {
             cloakOfShadows @6 :CloakOfShadows;
             driedRose @12 :DriedRose;
             hornOfPlenty @7 :Void;
+            lloydsBeacon @15 :LloydsBeacon;
             masterThievesArmband @8 :Void;
             sandalsOfNature @9 :SandalsOfNature;
             talismanOfForesight @10 :Void;
@@ -82,6 +85,11 @@ struct Item {
             chargeCap @0 :Int64;
             stealthed @1 :Bool;
             cooldown @2 :Int64;
+        }
+
+        struct LloydsBeacon {
+            returnDepth @0 :Int64;
+            returnPosition @1 :Int64;
         }
 
         struct SandalsOfNature {
@@ -142,6 +150,7 @@ struct Item {
     struct Bag {
         items @0 :List(Item);
         kind :union {
+            potionBandolier @4 :Void;
             scrollHolder @1 :Void;
             seedPouch @2 :Void;
             wandHolster @3 :Void;
@@ -182,6 +191,18 @@ struct Item {
         # Quantity is already a item property. Why is this one necessary?
     }
 
+    struct Honeypot {
+        union {
+            standard @0 :Void;
+            shattered @1 :Shattered;
+        }
+
+        struct Shattered {
+            myBee @0 :Int64;
+            beeDepth @1 :Int64;
+        }
+    }
+
     struct Key {
         depth @0 :Int64;
         union {
@@ -189,11 +210,6 @@ struct Item {
             golden @2 :Void;
             skeleton @3 :Void;
         }
-    }
-
-    struct LloydsBeacon {
-        returnDepth @0 :Int64;
-        returnPosition @1 :Int64;
     }
 
     struct Potion {
@@ -255,6 +271,7 @@ struct Item {
         union {
             identity @0 :Void;
             lullaby @1 :Void;
+            magicalInfusion @11 :Void;
             magicMapping @2 :Void;
             mirrorImage @3 :Void;
             psionicBlast @4 :Void;
@@ -357,6 +374,11 @@ struct Item {
                 }
             }
         }
+    }
+
+    struct DeprecatedLloydsBeacon @0xf4e7255aed818c4e {
+        returnDepth @0 :Int64;
+        returnPosition @1 :Int64;
     }
 }
 
