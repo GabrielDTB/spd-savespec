@@ -41,6 +41,33 @@ struct Item {
     struct Ankh {
         blessed @0 :Bool;
     }
+
+    struct Artifact {
+        image @0 :Int64;
+        exp @1 :Int64;
+        charge @2 :Int64;
+        partialCharge @3 :Float64;
+        union {
+            capeOfThorns @4 :Void;
+            chaliceOfBlood @5 :Void;
+            cloakOfShadows @6 :CloakOfShadows;
+            hornOfPlenty @7 :Void;
+            masterThievesArmband @8 :Void;
+            sandalsOfNature @9 :SandalsOfNature;
+            talismanOfForesight @10 :Void;
+        }
+
+        struct CloakOfShadows {
+            chargeCap @0 :Int64;
+            stealthed @1 :Bool;
+            cooldown @2 :Int64;
+        }
+
+        struct SandalsOfNature {
+            name @0 :Text;
+            seeds @1 :List(Item);
+        }
+    }
     
     struct Armor {
         glyph :union {
@@ -161,14 +188,21 @@ struct Item {
             detection @1 :Void;
             elements @2 :Void;
             evasion @3 :Void;
-            haggler @4 :Void;
+            furor @14 :Void;
+            force @15 :Void;
             haste @5 :Void;
-            herbalism @6 :Void;
-            mending @7 :Void;
+            might @17 :Void;
             power @8 :Void;
-            satiety @9 :Void;
-            shadows @10 :Void;
-            thorns @11 :Void;
+            sharpshooting @12 :Void;
+            tenacity @16 :Void;
+            wealth @13 :Void;
+
+            deprecatedHaggler @4 :Void; # Replaced by Master Thieves Armband - [v0.1.0, v0.2.0c)
+            deprecatedHerbalism @6 :Void; # Replaced by Sandals of Nature - [v0.1.0, v0.2.0c)
+            deprecatedMending @7 :Void; # Replaced by Chalice of Blood - [v0.1.0, v0.2.0c)
+            deprecatedSatiety @9 :Void; # Replaced by Horn of Plenty - [v0.1.0, v0.2.0c)
+            deprecatedShadows @10 :Void; # Replaced by Cloak of Shadows - [v0.1.0, v0.2.0c)
+            deprecatedThorns @11 :Void; # Replaced by Cape of Thorns - [v0.1.0, v0.2.0c)
         }
     }
 
