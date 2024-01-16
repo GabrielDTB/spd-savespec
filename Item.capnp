@@ -9,7 +9,7 @@ struct Item {
     quickslot @5 :Bool;
     union {
         amulet @6 :Void;
-        ankh @7 :Void;
+        ankh @32 :Ankh;
         armorKit @8 :Void;
         armor @9:Armor;
         bag @10 :Bag;
@@ -34,6 +34,12 @@ struct Item {
         torch @29 :Void;
         wand @30 :Wand;
         weapon @31 :Weapon;
+
+        deprecatedAnkh @7 :Void; # Promoted - [v0.1.0, v0.1.1a)
+    }
+
+    struct Ankh {
+        blessed @0 :Bool;
     }
     
     struct Armor {
@@ -90,12 +96,26 @@ struct Item {
 
     struct Food {
         union {
+            blandfruit @6 :Blandfruit;
             chargrilledMeat @0 :Void;
             frozenCarpaccio @1 :Void;
             mysteryMeat @2 :Void;
             pasty @3 :Void;
             ration @4 :Void;
             overpricedRation @5 :Void;
+        }
+
+        struct Blandfruit {
+            union {
+                health @0 :Void;
+                power @1 :Void;
+                paralyze @2 :Void;
+                invisi @3 :Void;
+                flame @4 :Void;
+                frost @5 :Void;
+                vision @6 :Void;
+                toxic @7 :Void;
+            }
         }
     }
 
