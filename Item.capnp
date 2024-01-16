@@ -36,7 +36,7 @@ struct Item {
         weighstone @33 :Void;
 
         deprecatedAnkh @7 :Void; # Promoted - [v0.1.0, v0.1.1a)
-        deprecatedDriedRose @15 :Void; # Removed - [v0.1.0, v0.2.1c)
+        deprecatedDriedRose @15 :Void; # Reworked into artifact - v0.2.3f
     }
 
     struct Ankh {
@@ -49,13 +49,33 @@ struct Item {
         charge @2 :Int64;
         partialCharge @3 :Float64;
         union {
+            alchemistsToolkit @11 :AlchemistsToolkit;
             capeOfThorns @4 :Void;
             chaliceOfBlood @5 :Void;
             cloakOfShadows @6 :CloakOfShadows;
+            driedRose @12 :DriedRose;
             hornOfPlenty @7 :Void;
             masterThievesArmband @8 :Void;
             sandalsOfNature @9 :SandalsOfNature;
             talismanOfForesight @10 :Void;
+            timekeepersHourglass @13 :TimekeepersHourglass;
+            unstableSpellbook @14 :UnstableSpellbook;
+        }
+
+        struct AlchemistsToolkit {
+            numWrongPlace @0 :Int64;
+            numRight @1 :Int64;
+            seedsToPotion @2 :Int64;
+            combination @3 :List(Item); # These should be potions
+            currentGuess @4 :List(Item);
+            bestGuess @5 :List(Item);
+        }
+
+        struct DriedRose {
+            talkedTo @0 :Bool;
+            firstSummon @1 :Bool;
+            spawned @2 :Bool;
+            droppedPetals @3 :Int64;
         }
 
         struct CloakOfShadows {
@@ -67,6 +87,16 @@ struct Item {
         struct SandalsOfNature {
             name @0 :Text;
             seeds @1 :List(Item);
+        }
+
+        struct TimekeepersHourglass {
+            chargeCap @0 :Int64;
+            sandBags @1 :Int64;
+        }
+
+        struct UnstableSpellbook {
+            chargeCap @0 :Int64;
+            scrolls @1 :List(Item); # Items should be scrolls
         }
     }
     
