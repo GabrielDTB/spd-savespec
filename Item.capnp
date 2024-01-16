@@ -56,6 +56,7 @@ struct Item {
             chaliceOfBlood @5 :Void;
             cloakOfShadows @6 :CloakOfShadows;
             driedRose @12 :DriedRose;
+            etherealChains @16 :Void;
             hornOfPlenty @7 :Void;
             lloydsBeacon @15 :LloydsBeacon;
             masterThievesArmband @8 :Void;
@@ -289,19 +290,26 @@ struct Item {
         currentCharges @1 :Int64;
         currentChargesKnown @2 :Bool;
         union {
-            amok @3 :Void;
-            avalanche @4 :Void;
-            blink @5 :Void;
+            blastWave @14 :Void; # Renamed from telekineses - v0.3.0e
+            corruption @3 :Void; # Renamed - v0.3.0e
             disintegration @6 :Void;
-            firebolt @7 :Void;
-            flock @8 :Void;
+            fireblast @7 :Void; # Renamed from firebolt - v0.3.0e
+            frost @13 :Void; # Renamed from slowness - v0.3.0e
             lightning @9 :Void;
             magicMissile @10 :Void;
-            poison @11 :Void;
+            prismaticLight @16 :Void;
             regrowth @12 :Void;
-            slowness @13 :Void;
-            telekineses @14 :Void;
-            teleportation @15 :Void;
+            transfusion @17 :Transfusion;
+            venom @11 :Void; # Renamed from poison - v0.3.0e
+
+            deprecatedAvalanche @4 :Void; # Removed - v0.3.0e
+            deprecatedBlink @5 :Void; # Removed - v0.3.0e
+            deprecatedFlock @8 :Void; # Removed - v0.3.0e
+            deprecatedTeleportation @15 :Void; # Removed - v0.3.0e
+        }
+
+        struct Transfusion {
+            freeCharge @0 :Bool;
         }
     }
 
