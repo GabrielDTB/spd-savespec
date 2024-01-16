@@ -17,7 +17,6 @@ struct Item {
         darkGold @12 :Void;
         dewdrop @13 :Void;
         dewVial @14 :DewVial;
-        driedRose @15 :Void;
         dwarfToken @16 :Void;
         food @17 :Food;
         gold @18 :Gold;
@@ -36,6 +35,7 @@ struct Item {
         weapon @31 :Weapon;
 
         deprecatedAnkh @7 :Void; # Promoted - [v0.1.0, v0.1.1a)
+        deprecatedDriedRose @15 :Void; # Removed - [v0.1.0, v0.2.1c)
     }
 
     struct Ankh {
