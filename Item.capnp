@@ -33,6 +33,7 @@ struct Item {
         torch @29 :Void;
         wand @30 :Wand;
         weapon @31 :Weapon;
+        weighstone @33 :Void;
 
         deprecatedAnkh @7 :Void; # Promoted - [v0.1.0, v0.1.1a)
         deprecatedDriedRose @15 :Void; # Removed - [v0.1.0, v0.2.1c)
@@ -209,11 +210,13 @@ struct Item {
     struct Seed {
         union {
             blindweed @0 :Void;
+            dreamfoil @7 :Void;
             earthroot @1 :Void;
             fadeleaf @2 :Void;
             firebloom @3 :Void;
             icecap @4 :Void;
             sorrowmoss @5 :Void;
+            stormvine @8 :Void;
             sungrass @6 :Void;
         }
     }
@@ -260,6 +263,10 @@ struct Item {
             none @0 :Void;
             some @1 :Enchantment;
         }
+        imbue :union {
+            none @4 :Void;
+            some @5 :Imbue;
+        }
         union {
             melee @2 :Melee;
             throwing @3 :Thrown;
@@ -278,6 +285,13 @@ struct Item {
                 instability @8 :Void;
                 horror @9 :Void;
                 luck @10 :Void;
+            }
+        }
+
+        struct Imbue {
+            union {
+                light @0 :Void;
+                heavy @1 :Void;
             }
         }
 
